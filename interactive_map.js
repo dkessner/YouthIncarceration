@@ -21,9 +21,9 @@ let label_positions = [
     {area: 16, name: "Foothill", x:280, y:80},
     {area: 17, name: "Devonshire", x:120, y:88},
     {area: 18, name: "Southeast", x:380, y:451},
-    {area: 19, name: "Mission", x:200, y:84},
-    {area: 20, name: "Olympic", x:336, y:309},
-    {area: 21, name: "Topanga", x:20, y:171}
+    {area: 19, name: "Mission", x:200, y:85},
+    {area: 20, name: "Olympic", x:326, y:329},
+    {area: 21, name: "Topanga", x:15, y:159}
 ];
 
 function preload() {
@@ -33,16 +33,18 @@ function preload() {
 
 function setup() {
     //createCanvas(480, 718);
-    createCanvas(1200, 800);
+    createCanvas(960, 800);
     console.log(lhda.getRowCount());
 
-    x = width/2 + 50;
+    x = width/2;
     y = 100;
 }
 
 function draw() {
     background(100);
+
     image(lapd_division_map, 0, 0);
+    displayMissingLabels();
 
     let selected = "";
 
@@ -59,26 +61,35 @@ function draw() {
     text(mouseX + " " + mouseY, 50, height-50);
 }
 
+function displayMissingLabels()
+{
+    fill(0);
+    text("Mission", 200, 85);
+    text("Olympic", 326, 329);
+    text("Topanga", 15, 159);
+}
 
 function displayStats(area){
   let row = lhda.getRow(area-1);
   
   //draw background rect
-  strokeWeight(5);
-  stroke(135, 134, 134);
+  //strokeWeight(5);
+  //stroke(135, 134, 134);
   fill(255, 255, 247);
   rect(x, y, 510, 470);
   
   //textFont(header);
   fill(0);
-  textAlign(CENTER, CENTER);
-  text("Data", x+250, y+30);
+  //textAlign(CENTER, CENTER);
+  //text("Data", x+250, y+30);
   
   //blue box
   noFill();
-  strokeWeight(3);
-  stroke(66, 135, 245);
+  //strokeWeight(3);0
+  //stroke(66, 135, 245);
   rect(x+16, y+85, 205, 60);
+
+  fill(0);
   textSize(14);
   let areaName = row.getString("areaName");
   textAlign(CORNER, CORNER);
@@ -92,8 +103,12 @@ function displayStats(area){
   text("Female arrests: "+femaleCount+" or "+shortFemalePercent+"%", x+20, y+140);
   
   //descent red box
-  stroke(235, 103, 103);
+  //stroke(235, 103, 103);
+  
+  noFill();
   rect(x+16, y+165, 205, 120);
+
+  fill(0);
   textSize(14);
   text("Female 'Descent' Breakdown", x+27, y+180);
   textSize(14);
@@ -109,8 +124,10 @@ function displayStats(area){
   text("O (Other): "+o, x+20, y+280);
 
   //age purple box
-  stroke(156, 56, 255);
+  //stroke(156, 56, 255);
+  noFill();
   rect(x+16, y+305, 205, 127);
+  fill(0);
   text("Female Age Breakdown", x+27, y+320);
   let thirteen = row.getString("Num13YearOlds");
   text("13-Year-Olds: "+thirteen, x+20, y+340);
@@ -129,8 +146,10 @@ function displayStats(area){
   */
   
   //common charge box green
-  stroke('#1BD132');
-  rect(x+259, y+85, 237, 140);
+  //stroke('#1BD132');
+  noFill();
+  rect(x+259, y+85, 205, 140);
+  fill(0);
   text("Most Common Charges", x+270, y+100);
   let charge1 = row.getString("MostCommonCharge1");
   let charge1num = row.getString("Charge1Num");
@@ -154,7 +173,6 @@ function displayStats(area){
   let charge3desc = chargeDesc(charge3);
   textSize(12);
   text("->"+charge3desc, x+290, y+220);
-   
 }
 
 
