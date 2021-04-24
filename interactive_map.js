@@ -21,9 +21,9 @@ let label_positions = [
     {area: 16, name: "Foothill", x:280, y:80},
     {area: 17, name: "Devonshire", x:120, y:88},
     {area: 18, name: "Southeast", x:380, y:451},
-    {area: 19, name: "Mission", x:200, y:85},
-    {area: 20, name: "Olympic", x:326, y:329},
-    {area: 21, name: "Topanga", x:15, y:159}
+    {area: 19, name: "Mission", x:220, y:85},
+    {area: 20, name: "Olympic", x:346, y:326},
+    {area: 21, name: "Topanga", x:35, y:159}
 ];
 
 function preload() {
@@ -33,7 +33,7 @@ function preload() {
 
 function setup() {
     //createCanvas(480, 718);
-    createCanvas(960, 800);
+    createCanvas(960, 718);
     console.log(lhda.getRowCount());
 
     x = width/2;
@@ -57,16 +57,18 @@ function draw() {
         }
     }
 
-    text(selected, 50, height-100);
-    text(mouseX + " " + mouseY, 50, height-50);
+    //text(selected, 50, height-100);
+    //text(mouseX + " " + mouseY, 50, height-50);
 }
 
 function displayMissingLabels()
 {
     fill(0);
-    text("Mission", 200, 85);
-    text("Olympic", 326, 329);
-    text("Topanga", 15, 159);
+    textAlign(CENTER);
+    text("Mission", 220, 85);
+    text("Olympic", 346, 326);
+    text("Topanga", 35, 159);
+    textAlign(LEFT);
 }
 
 function displayStats(area){
@@ -82,6 +84,7 @@ function displayStats(area){
   fill(0);
   //textAlign(CENTER, CENTER);
   //text("Data", x+250, y+30);
+  //
   
   //blue box
   noFill();
