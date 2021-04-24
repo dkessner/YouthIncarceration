@@ -17,12 +17,12 @@ let label_positions = [
     {area: 13, name: "Newton", x:384, y:370},
     {area: 14, name: "Pacific", x:240, y:431},
     {area: 15, name: "North Hollywood", x:257, y:167},
-    {area: 16, name: "Foothill", x:277, y:88},
-    {area: 17, name: "Devonshire", x:120, y:80},
+    {area: 16, name: "Foothill", x:280, y:80},
+    {area: 17, name: "Devonshire", x:120, y:88},
     {area: 18, name: "Southeast", x:380, y:451},
-    {area: 19, name: "Mission", x:0, y:0},
-    {area: 20, name: "Olympic", x:0, y:0},
-    {area: 21, name: "Topanga", x:0, y:0}
+    {area: 19, name: "Mission", x:200, y:84},
+    {area: 20, name: "Olympic", x:336, y:309},
+    {area: 21, name: "Topanga", x:20, y:171}
 ];
 
 function preload() {
